@@ -22,7 +22,17 @@ Ubicate en la raíz (inicio) de la carpeta
 pip install -r requirements.txt
 ```
 
-4. Arrancar aplicación
+4. Crear archivo de variables de entorno (Powershell)
+```console
+New-Item .env
+```
+
+5. Crear variable de entorno e insertar clave de OpenAI (dentro de .env, escribes lo siguiente)
+```console
+OPENAI_API_KEY=sk-12345
+```
+
+6. Arrancar aplicación
 ```console
 python ChatBot.py
 ```
