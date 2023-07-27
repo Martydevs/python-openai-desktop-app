@@ -10,8 +10,6 @@ import InterfaceGPT as ChatGPT
 from datetime import datetime, timedelta
 import re
 
-
-
 histPreguntas=[]
 histRespuestas=[]
 
