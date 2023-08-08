@@ -15,7 +15,7 @@ histRespuestas = []
 
 def TextToVoice(text: str):
     volume = 0.7
-    tts = gTTS(mensaje, lang="es", slow=False)
+    tts = gTTS(text, lang="es", slow=False)
     ran = random.randint(0,9999)
     filename = 'Temp' + format(ran) + '.mp3'
     tts.save(filename)
