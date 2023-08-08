@@ -33,7 +33,7 @@ New-Item .env
 5. Crear variable de entorno e insertar clave de OpenAI (dentro de .env, escribes lo siguiente)
 
 ```console
-OPENAI_API_KEY=sk-12345
+OPENAI_API_KEY='TU CLAVE DE OPENAI'
 ```
 
 6. Arrancar aplicación
