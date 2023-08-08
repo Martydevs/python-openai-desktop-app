@@ -1,28 +1,34 @@
-import pygame
+from pygame import mixer
 import os
 import speech_recognition as sr
-from dotenv import load_dotenv
-import openai
 import pyaudio
 import wave
-import time
+import time as ti
 import InterfaceGPT as ChatGPT
-from datetime import datetime, timedelta
 import re
+import random
+from gtts import gTTS
 
 histPreguntas = []
 histRespuestas = []
 
 
 def TextToVoice(text: str):
-    voice = "es-GT-AndresNeural"
-    command = f'edge-tts --voice "{voice}" --text "{text}" --write-media "data.mp3"'
-    os.system(command)
-    pygame.init()
-    pygame.mixer.init()
-    f = open("data.mp3")
-    pygame.mixer.music.load(f)
-    pygame.mixer.music.play()
+    volume = 0.7
+    tts = gTTS(mensaje, lang="es", slow=False)
+    ran = random.randint(0,9999)
+    filename = 'Temp' + format(ran) + '.mp3'
+    tts.save(filename)
+    mixer.init()
+    mixer.music.load(filename)
+    mixer.music.set_volume(volume)
+    mixer.music.play()
+
+    while mixer.music.get_busy():
+        ti.sleep(0.3)
+
+    mixer.quit()
+    os.remove(filename)
 
 
 def AudioToText():
