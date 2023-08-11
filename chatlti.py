@@ -61,9 +61,9 @@ def pregunta():
         format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK
     )
     frames = []
-    timeout = time.time() + seconds
+    timeout = ti.time() + seconds
     while True:
-        if time.time() > timeout:
+        if ti.time() > timeout:
             score = 0
             break
         data = stream.read(CHUNK)
